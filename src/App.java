@@ -30,6 +30,7 @@ public class App {
             
 
             double numRating = Double.parseDouble(filme.get("imDbRating"));
+            // Adicionado emoji conforme o resultado da classificação
             if(numRating <= 6.0){
                 for(int i = 1; i <= Math.ceil(numRating); i++) {
                     System.out.print("👎");
@@ -39,10 +40,8 @@ public class App {
                     System.out.print("⭐");
                 }
             }
-            
             System.out.println("\n"); 
         }
-    
     }
 }
 
