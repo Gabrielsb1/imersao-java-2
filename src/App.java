@@ -1,4 +1,6 @@
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -11,7 +13,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         //fazer uma conexão http e buscar os filmes mais populares  
-        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/MostPopularMovies.json";
+        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/MostPopularTVs.json";
         URI endereco = URI.create(url);
         var client = HttpClient.newHttpClient(); 
         var request = HttpRequest.newBuilder(endereco).GET().build();
@@ -20,27 +22,22 @@ public class App {
         
         // extrair dados  (titulo , poster, classificação, ano) 
         var jsonParser = new JsonParser();
-        List<Map<String, String>> listaDeFilmes = jsonParser.parse(body); 
+        List<Map<String, String>> listaDeFilmes = jsonParser.parse(body);
        
-       
+        // exibir e manipular os dados
+        var geradora = new GeradoraDeFigurinhas();
         for (Map<String,String> filme : listaDeFilmes) {
-            System.out.println("Título: " + "\u001b[1m" + filme.get("title") + "\u001b[m");
-            System.out.println("Imagem: " + "\u001b[1m" + filme.get("image") + "\u001b[m");
-            System.out.println("\u001b[38;2;255;255;255m\u001b[48;2;42;122;228mClassificação:\u001b[m " + "\u001b[1m" + filme.get("imDbRating") + "\u001b[m");
-            
 
-            double numRating = Double.parseDouble(filme.get("imDbRating"));
-            // Adicionado emoji conforme o resultado da classificação
-            if(numRating <= 6.0){
-                for(int i = 1; i <= Math.ceil(numRating); i++) {
-                    System.out.print("👎");
-                }
-            } else {
-                for(int i = 1; i <= Math.ceil(numRating); i++) {
-                    System.out.print("⭐");
-                }
-            }
-            System.out.println("\n"); 
+            String urlImagem =  filme.get("image");
+            String titulo = filme.get("title");
+            
+            InputStream inputStream = new URL(urlImagem).openStream();
+            String nomeArquivo = titulo + ".jpg";
+
+            geradora.cria(inputStream, nomeArquivo);
+
+            System.out.println(titulo);
+            System.out.println(); 
         }
     }
 }
