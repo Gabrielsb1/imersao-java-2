@@ -5,6 +5,8 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
+
+
 import javax.imageio.ImageIO;
 
 public class GeradoraDeFigurinhas  {
@@ -41,10 +43,13 @@ public class GeradoraDeFigurinhas  {
         graphics.drawString(texto, x, y);
        
         /*Criando uma nova subpasta no diretorio informado */
-        boolean sucess = new File("c:\\temp\\alura-stickers" + "//saida").mkdir();
-        System.out.println("Directory created successfully: " + sucess);
-
+        var path = new File("c:\\temp\\alura-stickers" + "//saida");
+        if(path != null) {
+           new File("c:\\temp\\alura-stickers" + "//saida").mkdir();
+        }
+        
         // Escrever a nova imagem em um arquivo
+        nomeArquivo = nomeArquivo.replace(":", "-");
         ImageIO.write(novaImagem, "png", new File("saida/" + nomeArquivo));
 
     }
