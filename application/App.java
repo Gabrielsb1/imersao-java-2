@@ -6,18 +6,13 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        //fazer uma conexão HTTP e buscar os filmes mais populares
+        API api = API.IMDB_TOP_MostPopularTVs;
 
-        //String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/MostPopularTVs.json";
-        //ExtratorDeConteudoDoIMDB extrator = new ExtratorDeConteudoDoIMDB();
-
-        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/NASA-APOD.json";
-        ExtratorDeConteudoDaNasa extrator = new ExtratorDeConteudoDaNasa();
-
-
+        String url = api.getUrl();
+        ExtratorDeConteudo extrator = api.getExtrator();
+        
         var http =  new ClienteHttp();
         String json = http.buscaDados(url);
-        
         
         // exibir e manipular os dados
 
