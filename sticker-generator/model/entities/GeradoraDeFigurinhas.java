@@ -45,14 +45,14 @@ public class GeradoraDeFigurinhas  {
         graphics.drawString(texto, x, y);
        
         /*Criando uma nova subpasta no diretorio informado */
-        var path = new File("c:\\temp\\alura-stickers" + "//saida");
+        var path = new File("c:\\temp\\alura-stickers\\sticker-generator");
         if(path != null) {
-           new File("c:\\temp\\alura-stickers" + "//saida").mkdir();
+           new File( path + "//saida").mkdir();
         }
         
         // Escrever a nova imagem em um arquivo
         nomeArquivo = nomeArquivo.replace(":", "-");
-        ImageIO.write(novaImagem, "png", new File("saida/" + nomeArquivo));
+        ImageIO.write(novaImagem, "png", new File( path + "/saida/" + nomeArquivo));
 
     }
 
