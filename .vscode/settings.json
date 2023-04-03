@@ -1,6 +1,0 @@
-{
-    "java.project.sourcePaths": ["application", "model/entities", "model/enums", "model/exception"],
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
-}
