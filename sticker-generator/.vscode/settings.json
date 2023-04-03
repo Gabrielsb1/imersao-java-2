@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": ["sticker-generator/application", "sticker-generator/application", "sticker-generator/model/entities", "sticker-generator/model/enums", "sticker-generator/model/exception"],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
