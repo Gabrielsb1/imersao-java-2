@@ -1,12 +1,17 @@
+
+
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        API api = API.IMDB_TOP_MostPopularTVs;
+        Scanner sc = new Scanner(System.in);
+
+        API api = API.NASA;
 
         String url = api.getUrl();
         ExtratorDeConteudo extrator = api.getExtrator();
@@ -21,15 +26,19 @@ public class App {
         var geradora = new GeradoraDeFigurinhas();
         for (int i = 0; i < conteudos.size() ; i++) {
 
+
             Conteudo conteudo = conteudos.get(i);
             InputStream inputStream = new URL(conteudo.urlImagem()).openStream();
 
             String nomeArquivo = conteudo.titulo() + ".png";
-            geradora.cria(inputStream, nomeArquivo);
+            System.out.print("Informe a frase do sticker: ");
+            String frase = sc.nextLine();
+            geradora.cria(inputStream, nomeArquivo, frase);
 
             System.out.println(conteudo.getTitulo());
             System.out.println(); 
         }
+        sc.close();
     }
 }
 

@@ -10,8 +10,10 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 
 public class GeradoraDeFigurinhas  {
+
+    String texto;
     
-    public void cria(InputStream inputStream, String nomeArquivo) throws Exception {
+    public void cria(InputStream inputStream, String nomeArquivo, String frase) throws Exception {
 
         // Leitura da imagem
         //InputStream inputStream = new FileInputStream(new File("entrada/filme.jpg"));
@@ -38,14 +40,14 @@ public class GeradoraDeFigurinhas  {
         graphics.setFont(fonte);
 
         // Escrever uma frase na nova imgaem
-        String texto = "Imersão JAVA ✌";
+        //String texto = "Imersão JAVA ✌";
         FontMetrics metrics = graphics.getFontMetrics(fonte);
-        int x = (largura - metrics.stringWidth(texto)) / 2;
+        int x = (largura - metrics.stringWidth(frase)) / 2;
         int y = novaAltura - 70;
-        graphics.drawString(texto, x, y);
+        graphics.drawString(frase, x, y);
        
         /*Criando uma nova subpasta no diretorio informado */
-        var path = new File("c:\\temp\\alura-stickers\\sticker-generator");
+        var path = new File("c:\\temp\\alura-stickers\\stickergenerator");
         if(path != null) {
            new File( path + "//saida").mkdir();
         }
@@ -53,6 +55,7 @@ public class GeradoraDeFigurinhas  {
         // Escrever a nova imagem em um arquivo
         nomeArquivo = nomeArquivo.replace(":", "-");
         ImageIO.write(novaImagem, "png", new File( path + "/saida/" + nomeArquivo));
+
 
     }
 
