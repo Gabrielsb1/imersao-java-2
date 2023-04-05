@@ -24,7 +24,7 @@ public class GeradoraDeFigurinhas  {
 
         int largura = imagemOriginal.getWidth();
         int altura = imagemOriginal.getHeight();
-        int novaAltura = altura + 200;
+        int novaAltura = altura + 100;
         BufferedImage novaImagem = new BufferedImage(largura, novaAltura, BufferedImage.TRANSLUCENT);
 
         // Copia a imagem original pra novo imagem (em memória)

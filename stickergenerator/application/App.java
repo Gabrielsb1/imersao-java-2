@@ -11,7 +11,7 @@ public class App {
 
         Scanner sc = new Scanner(System.in);
 
-        API api = API.NASA;
+        API api = API.IMDB_TOP_MostPopularTVs;
 
         String url = api.getUrl();
         ExtratorDeConteudo extrator = api.getExtrator();

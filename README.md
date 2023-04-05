@@ -8,16 +8,14 @@ O desafio consistiu em criar um código Java capaz de consumir uma API que retor
 Na aula 5 da imersão, aprendemos a criar um projeto com Spring Boot Web para criar a nossa própria API, com a utilização do Maven, MongoDB e a criação do nosso próprio CRUD em Java. Essa API listava as linguagens de programação em um arquivo JSON com título, imagem e ranking, que seriam consumidos no código Java para gerar os stickers.
 
 <h1>Tecnologias Utilizadas</h1>
-Durante a imersão, foram utilizadas as seguintes tecnologias: <strong>Java, Spring Boot, Maven, MongoDb e Docker</strong>.
-
-![Java](https://raw.githubusercontent.com/abrahamcalf/programming-languages-logos/master/src/java/java_128x128.png)
-<br>
+<h3>Durante a imersão, foram utilizadas as seguintes tecnologias: </h3>
+<p><strong>Java, Spring Boot, Maven, MongoDb e Docker</strong>.</p>
 
 <h1>Meus Stickers</h1>
 
-![Exemplo de Imagem](stickergenerator/saida/Find%20the%20Man%20in%20the%20Moon.png)
-![Exemplo de Imagem](stickergenerator/saida/M51-%20The%20Whirlpool%20Galaxy%20from%20Hubble.png)
-![Exemplo de Imagem](stickergenerator/saida/Satellites%20Behind%20Pinnacles.png)
+![Exemplo de Imagem](stickergenerator/saida/Java.png)
+![Exemplo de Imagem](stickergenerator/saida/JavaScript.png)
+![Exemplo de Imagem](stickergenerator/saida/PHP.png)
 
 <h1>Como executar o código</h1>
 Para executar o código, siga os seguintes passos:
